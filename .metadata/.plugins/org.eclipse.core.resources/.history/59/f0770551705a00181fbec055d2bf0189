@@ -1,0 +1,27 @@
+package jdbc;
+
+import java.sql.*;
+
+
+public class MysqlConn {
+
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.jdbc.mysql.Driver");
+			Connection con;
+			try {
+				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/satkar","root","root");
+				Statement st=con.createStatement();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			
+		}catch(ClassNotFoundException e) {
+			System.out.println(e);
+		}
+	}
+
+}

@@ -1,0 +1,23 @@
+package jdbc;
+
+import java.sql.*;
+
+public class CallableStatementExp {
+
+	public static void main(String[] args) {
+		Connection cn;
+		CallableStatement stmt;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/satkar","root","root");
+			stmt=cn.prepareCall("{call getPersonInfo}");
+			ResultSet resultSet = stmt.executeQuery();
+			System.out.println(stmt.executeQuery());
+			System.out.println("successfully");
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+}

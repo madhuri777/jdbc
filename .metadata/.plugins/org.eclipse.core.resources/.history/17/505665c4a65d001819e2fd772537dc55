@@ -1,0 +1,24 @@
+package com.bridgeit.deo;
+
+import java.sql.*;
+
+
+public class Connection {
+
+	ConnectionDemo connection;
+	PreparedStatement preparedStatement;
+	public void insert(String name,String email) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+			preparedStatement=connection.preparedStatement("insert into UserDemo(?,?)");
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,31 @@
+package jdbc;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.*;
+
+public class ImageInsertRetrive {
+
+	public static void main(String[] args) {
+		Connection cn;
+		PreparedStatement stmt;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/satkar","root","root");
+			stmt=cn.prepareStatement("insert into imagetable values(?,?)");
+			stmt.setString(1,"htc");
+			
+			File img=new File("images/img/htc.png");
+			System.out.println("gfghsgfd "+img.length());
+			FileInputStream fin=new FileInputStream(img);
+			stmt.setBinaryStream(2,fin,(int)img.length()); 
+			int i=stmt.executeUpdate();
+			System.out.println(i+" records updated");
+			cn.close();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+}

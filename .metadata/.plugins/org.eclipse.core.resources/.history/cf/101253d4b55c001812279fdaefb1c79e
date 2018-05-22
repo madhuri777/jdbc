@@ -1,0 +1,74 @@
+package jdbc;
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class CallableStatementExp {
+	Scanner sc=new Scanner(System.in);
+	Connection cn;
+	CallableStatement stmt;
+	public void selectData() {
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+		cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/satkar","root","root");
+		stmt=cn.prepareCall("{call getPersonInfo}");
+		ResultSet rs=stmt.executeQuery();
+		while(rs.next()) {
+			System.out.println(rs.getString(1)+" "+rs.getInt(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getInt(5));
+		}
+		System.out.println("successfully");
+	}catch(Exception e) {
+		System.out.println(e);
+	}
+	}
+	public void insertData() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/satkar","root","root");
+			stmt=cn.prepareCall("call getDataOfPerson(?,?,?,?,?");
+			System.out.println("enter the person name ");
+			String name=sc.next();
+			stmt.setString(1,name);
+			System.out.println("enter the age of person ");
+			int age=sc.nextInt();
+			stmt.setInt(2,age);
+			System.out.println("enter the city of person ");
+			String city=sc.next();
+			stmt.setString(3,city);
+			System.out.println("enter the state name of person ");
+			String state=sc.next();
+			stmt.setString(4,state);
+			System.out.println("Enter the salary of person ");
+			int salary=sc.nextInt();
+			stmt.setInt(5,salary);
+			stmt.execute();
+			System.out.println("Successfully");
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	public static void main(String[] args) {
+		CallableStatementExp cstmt=new CallableStatementExp();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Which option u wants to perfom ");
+		int n=sc.nextInt();
+		///do {
+		switch(n) {
+		case 1:
+			cstmt.insertData();
+			break;
+		case 2:
+			cstmt.selectData();
+			break;
+		case 3:
+			System.out.println("do u wants to continue: ");
+			String s=sc.next();
+			if(s.startsWith("n")) {
+				System.out.println("ok");
+				break;
+			}
+		}
+		//}while(true);
+	}
+
+}

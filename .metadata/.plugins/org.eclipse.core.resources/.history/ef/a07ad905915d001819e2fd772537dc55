@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="welcomepage" method="get">
+<input type="submit" value="Click me">
+</form>
+<h5>Welcome</h5>
+</body>
+</html>

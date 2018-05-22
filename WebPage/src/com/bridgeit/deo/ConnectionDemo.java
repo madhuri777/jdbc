@@ -1,0 +1,43 @@
+package com.bridgeit.deo;
+
+import java.sql.*;
+
+
+public class ConnectionDemo {
+
+	Connection connection;
+	PreparedStatement preparedStatement;
+	
+	public void insert(String name,String email) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+			preparedStatement=connection.prepareStatement("insert into UserDemo values(?,?)");
+			preparedStatement.setString(1,name);
+			preparedStatement.setString(2,email);
+			int i=preparedStatement.executeUpdate();
+            System.out.println(i+"record Inserted");
+            connection.close();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	public void Record() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
+			preparedStatement=connection.prepareStatement("select * from UserDemo");
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				System.out.println(rs.getString(1)+" "+rs.getString(2));
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+	public static void main(String[] args) {
+		
+
+	}
+
+}
