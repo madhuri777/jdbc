@@ -1,0 +1,51 @@
+.registration {
+  margin:0 auto;
+  max-width:500px;
+  
+}
+.registration-header {
+  color:#eee;
+  text-align:center;
+  font-size:300%;
+}
+.registration-form{
+	 border:.5px solid #f57900;
+  background:#4facff;
+  border-radius:10px;
+  box-shadow:0px 0px 10px #000;
+}
+.registration-form h3 {
+  text-align:left;
+  margin-left:90px;
+  color:#000000;
+}
+.registration-form {
+  box-sizing:border-box;
+  padding-top:15px;
+  padding-bottom:10%;
+  margin:5% auto;
+  text-align:center;
+}
+.registration input[type="text"],
+.registration input[type="password"],
+.registration input[type="email"] {
+  
+	width: 80%;
+  line-height:2em;
+  font-family: 'Ubuntu', sans-serif;
+  margin:1em 2em;
+  border-radius:5px;
+  border:2px solid #f2f2f2;
+  outline:none;
+  padding-left:10px;
+}
+.registration input[type="date"]{
+	width: 80%;
+	line-height:1em;
+	 font-family: 'Ubuntu', sans-serif;
+  margin:1em 2em;
+  border-radius:5px;
+  border:2px solid #f2f2f2;
+  outline:none;
+  padding-left:10px;
+}
