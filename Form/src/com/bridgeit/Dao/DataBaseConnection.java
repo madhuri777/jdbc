@@ -22,13 +22,30 @@ public class DataBaseConnection {
 			System.out.println(e);
 		}
 	}
-	public void Retrive() {
+	public boolean Retrive(String name,String passwd) {
+	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","root");
-			preparedStatement=connection.prepareStatement("select * from UserDataBase where email=? and password=?");
+			preparedStatement=connection.prepareStatement("select * from UserDataBase");
+			
+			ResultSet rs=preparedStatement.executeQuery();
+			while(rs.next()) {
+				String username=rs.getString(1);
+				String pass=rs.getString(3);
+				System.out.println("user name and passwd "+username+ " "+pass);
+				if(name.equals(username)&&passwd.equals(pass)) {
+				System.out.println("u have succesfully logged in");
+					return true;
+					
+				}
+				
+			}
+			
 		}catch(Exception e) {
 			System.out.println(e);
 		}
+		
+		return false;
 	}
 }

@@ -16,11 +16,11 @@
 </div>
 <form action="servlet1" name="RegistrationForm" onSubmit="return validation()" >
 <div class="registration-form">
-<h3>UserName:</h3><input type="text" id="username" name="username" placeholder="username" required="required"/><br>
-<h3>Email:</h3><input type="email" id="emails" name="emails" placeholder="email_id" required="required"/><br>
-<h3>Password:</h3><input type="password" id="password" name="password" placeholder="password" required="required" /><br>
-<h3>Re-Enter-password:</h3><input type="password" id="repasswd" name="" placeholder="re-password" required="required"/><br>
-<h3>Date Of Birth:</h3><input type="date" id="date" name="bdyDate" placeholder="" required="required"/><br>
+<h3>UserName:</h3><input type="text" id="username" name="username" placeholder="username" /><br>
+<h3>Email:</h3><input type="email" id="emails" name="emails" placeholder="email_id" /><br>
+<h3>Password:</h3><input type="password" id="password" name="password" placeholder="password" /><br>
+<h3>Re-Enter-password:</h3><input type="password" id="repasswd" name="repasswd" placeholder="re-password" /><br>
+<h3>Date Of Birth:</h3><input type="date" id="date" name="bdyDate" placeholder="" /><br>
 <input type="submit" value="Register" class="register">
 </div>
 </form>

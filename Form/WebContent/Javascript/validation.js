@@ -1,48 +1,55 @@
 function validation() {
 	var name=document.getElementById("username").value;
 	 var email_id=document.getElementById("emails").value;
-	 var repass=document.getElementById("repasswd").value;
 	 var pass=document.getElementById("password").value;
-//alert("user info is "+name);
-
-	 if(name_validation(name)){
-		 if(email_validation(email_id)){
-			 if(pass_validation(pass,repass)){
-				 
-			 }
-		 }
+	 var repass=document.getElementById("repasswd").value;
+	
+//	 if(name==""){
+//		 alert("please enter name ");
+//		 return false;
+//	 }
+//	 if(email_id==""){
+//		 alert("please enter email id ");
+//		 return false;
+//	 }
+//	 if(pass==""){
+//		 alert("please enter password");
+//		 return false;
+//	 }
+//	 return true;
+//	 
+//	 
+	 if(nameValidation(name)&&emailValidation(email)&&passValidation(pass)){
+		 alert("all fields filled correctly");
+		 return true;
 	 }
- 
-}
-function name_validation(name) {
-	var pattern=/^[A-Za-z]+$/;
-	
-	if(name!=""&&!name.value.match(pattern)){
-		alert("please enter name with all charachters only");
-			return false;
-		}else{
-			
-			return true;
-		}
-	
-	}
-
-function email_validation(email_id){
-	var x=email;
-	alert("email is",x);
-	var atposition=x.indexOf("@");  
-	var dotposition=x.lastIndexOf(".");  
-	if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
-		  alert("Please enter a valid e-mail address ");  
-		  return false;  
-		  }  
-}
-function pass_validation(pass,repass){
-	alert("pass is ",pass ,repass);
-	if(pass!=repass){
-		alert("please enter the same password");
+	 
+} 
+function nameValidation(name){
+	if(name==""){
+		alert("please enter name");
 		return false;
 	}else{
 		return true;
 	}
-} 
+}
+function emailValidation(email_id) {
+	if(email==""){
+		alert("please enter the email");
+		return false;
+	}else{
+		return true;
+	}
+	
+}
+function passValidation(pass) {
+	//var l=pass.length;
+	
+	if(pass.length<8&&pass.length>12){
+		alert("password length should be greater than 8 and less than 12");
+		return false;
+	}else{
+		alert("u enterd right passwd");
+		return true;
+	}
+}
